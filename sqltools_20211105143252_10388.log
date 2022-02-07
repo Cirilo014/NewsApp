@@ -1,0 +1,33 @@
+21-11-05 14:33:57.7193839 pid:10388 tid:1 sqltools Critical: 0 : An unhandled exception occurred: System.TypeInitializationException: The type initializer for 'System.Marvin' threw an exception. ---> System.IO.FileLoadException: Could not load file or assembly 'System.Security.Cryptography.Algorithms, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. O arquivo já está sendo usado por outro processo. (Exception from HRESULT: 0x80070020)
+   at System.Marvin.GenerateSeed()
+   at System.Marvin..cctor()
+   --- End of inner exception stack trace ---
+   at System.Xml.NameTable.ComputeHash32(String key)
+   at System.Xml.NameTable.Add(String key)
+   at System.Xml.XmlTextReaderImpl..ctor(XmlNameTable nt)
+   at System.Xml.XmlTextReaderImpl..ctor(String url, TextReader input, XmlNameTable nt)
+   at System.Xml.XmlTextReader..ctor(TextReader input)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(TextReader textReader)
+   at Microsoft.SqlTools.ServiceLayer.ObjectExplorer.SmoModel.NodePathGenerator.Initialize() in D:\a\1\s\src\Microsoft.SqlTools.ServiceLayer\ObjectExplorer\SmoModel\NodePathGenerator.cs:line 30
+   at lambda_method(Closure , LifetimeContext , CompositionOperation )
+   at System.Composition.TypedParts.ActivationFeatures.DisposalFeature.<>c__DisplayClass0_0.<RewriteActivator>b__0(LifetimeContext c, CompositionOperation o)
+   at System.Composition.Hosting.Providers.ImportMany.ImportManyExportDescriptorProvider.<>c__DisplayClass3_2`1.<GetImportManyDescriptor>b__4(ExportDescriptor e)
+   at System.Linq.Enumerable.SelectArrayIterator`2.ToArray()
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at System.Composition.Hosting.Core.CompositionOperation.Run(LifetimeContext outermostLifetimeContext, CompositeActivator compositionRootActivator)
+   at System.Composition.Hosting.Core.LifetimeContext.TryGetExport(CompositionContract contract, Object& export)
+   at System.Composition.CompositionContext.GetExport(CompositionContract contract)
+   at System.Composition.CompositionContext.GetExports(Type exportType, String contractName)
+   at Microsoft.SqlTools.Extensibility.ExtensionStore.GetExports[T]() in D:\a\1\s\src\Microsoft.SqlTools.Hosting\Extensibility\ExtensionServiceProvider.cs:line 190
+   at Microsoft.SqlTools.Extensibility.RegisteredServiceProvider.GetServicesImpl[T]() in D:\a\1\s\src\Microsoft.SqlTools.Hosting\Extensibility\RegisteredServiceProvider.cs:line 106
+   at Microsoft.SqlTools.Extensibility.ServiceProviderBase.GetServices[T]() in D:\a\1\s\src\Microsoft.SqlTools.Hosting\Extensibility\IMultiServiceProvider.cs:line 73
+   at Microsoft.SqlTools.ServiceLayer.HostLoader.InitializeHostedServices(RegisteredServiceProvider provider, IProtocolEndpoint host) in D:\a\1\s\src\Microsoft.SqlTools.ServiceLayer\HostLoader.cs:line 139
+   at Microsoft.SqlTools.ServiceLayer.HostLoader.InitializeRequestHandlersAndServices(ServiceHost serviceHost, SqlToolsContext sqlToolsContext) in D:\a\1\s\src\Microsoft.SqlTools.ServiceLayer\HostLoader.cs:line 126
+   at Microsoft.SqlTools.ServiceLayer.HostLoader.CreateAndStartServiceHost(SqlToolsContext sqlToolsContext) in D:\a\1\s\src\Microsoft.SqlTools.ServiceLayer\HostLoader.cs:line 51
+   at Microsoft.SqlTools.ServiceLayer.Program.Main(String[] args) in D:\a\1\s\src\Microsoft.SqlTools.ServiceLayer\Program.cs:line 47
+Callstack=   at System.Environment.get_StackTrace()
+   at Microsoft.SqlTools.Utility.SqlToolsTraceListener.WriteFooter(TraceEventCache eventCache) in D:\a\1\s\src\Microsoft.SqlTools.Hosting\Utility\Logger.cs:line 429
+   at System.Diagnostics.TraceSource.TraceEvent(TraceEventType eventType, Int32 id, String message)
+   at Microsoft.SqlTools.Utility.Logger.Write(TraceEventType eventType, LogEvent logEvent, String logMessage) in D:\a\1\s\src\Microsoft.SqlTools.Hosting\Utility\Logger.cs:line 261
+   at Microsoft.SqlTools.Utility.Logger.WriteWithCallstack(TraceEventType eventType, String logMessage) in D:\a\1\s\src\Microsoft.SqlTools.Hosting\Utility\Logger.cs:line 229
+   at Microsoft.SqlTools.ServiceLayer.Program.Main
