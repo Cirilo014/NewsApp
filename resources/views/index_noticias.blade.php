@@ -13,7 +13,7 @@
 
         {{-- Apresentará as notícias armazenadas no DB --}} 
 
-        {{-- criando uma variável contador de notícias --}}
+        {{-- criando uma variável contador de notícias no app --}}
 
             @php
                 $total = 0;
